@@ -1,10 +1,7 @@
-﻿using Microsoft.JSInterop;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Microsoft.JSInterop;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     /// <summary>
     /// Strongly-typed access to:
@@ -12,7 +9,7 @@ namespace BlazorAgGrid
     /// </summary>
     public class GridApi
     {
-        internal string CallGridApi = "blazor_ag_grid.gridOptions_callGridApi";
+        internal string CallGridApi = "BlazorAgGrid.gridOptions_callGridApi";
 
         private IJSRuntime _js;
         private string _id;
@@ -56,7 +53,7 @@ namespace BlazorAgGrid
 
         public Task SetDatasource(IGridDatasource ds = null)
         {
-            return _js.InvokeVoidAsync("blazor_ag_grid.gridOptions_setDatasource", _id, ds).AsTask();
+            return _js.InvokeVoidAsync("BlazorAgGrid.gridOptions_setDatasource", _id, ds).AsTask();
         }
 
         private Task CallApi(string name, params object[] args)

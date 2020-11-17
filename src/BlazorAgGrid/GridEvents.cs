@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     /// <summary>
     /// Strongly-typed counterpart of:

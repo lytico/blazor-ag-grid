@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Text.Json.Serialization;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     public partial class GridOptions
     {
@@ -29,7 +28,7 @@ namespace BlazorAgGrid
             }
         }
 
-        private void PrepareColumns(object source, PrepareForInteropEventArgs args)
+        private void PrepareColumns(object source, GridOptions.PrepareForInteropEventArgs args)
         {
             Console.WriteLine("Preparing Columns");
             // Merge declared and programatic if neeeded

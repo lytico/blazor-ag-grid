@@ -1,10 +1,7 @@
-﻿using Microsoft.JSInterop;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Microsoft.JSInterop;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     /// <summary>
     /// Strongly-typed access to:
@@ -12,7 +9,7 @@ namespace BlazorAgGrid
     /// </summary>
     public class GridColumnApi
     {
-        internal string CallColumnApi = "blazor_ag_grid.gridOptions_callColumnApi";
+        internal string CallColumnApi = "BlazorAgGrid.gridOptions_callColumnApi";
 
         private IJSRuntime _js;
         private string _id;

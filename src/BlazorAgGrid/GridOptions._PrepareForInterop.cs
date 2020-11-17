@@ -1,9 +1,7 @@
-﻿using Microsoft.JSInterop;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using Microsoft.JSInterop;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     // Adds support for event to make preparations and adjustments
     // of the <c>GridOptions</c> instance before being passed off

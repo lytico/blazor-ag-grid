@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using Microsoft.AspNetCore.Components;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     public partial class GridRow : ComponentBase
     {

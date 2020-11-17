@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     /// <summary>
     /// Params for <see cref="IDatasource.GetRows()">Infinite Scrolling Datasource</see>, based on:

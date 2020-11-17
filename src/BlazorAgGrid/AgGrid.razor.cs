@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
-    public partial class AgGrid : IDisposable
+    public partial class AgGrid : ComponentBase, IDisposable
     {
         private static readonly JsonSerializerOptions AgGridJsonSerOptions = new JsonSerializerOptions
         {
@@ -90,7 +89,7 @@ namespace BlazorAgGrid
             ////Console.WriteLine("Sanitized GridOpts: "
             ////    + System.Text.Json.JsonSerializer.Serialize(interopOptions));
 
-            await JS.InvokeVoidAsync("blazor_ag_grid.createGrid", _gridDiv,
+            await JS.InvokeVoidAsync("BlazorAgGrid.createGrid", _gridDiv,
                 interopOptions, ConfigureScript);
         }
 
@@ -98,7 +97,7 @@ namespace BlazorAgGrid
         {
             try
             {
-                await JS.InvokeVoidAsync("blazor_ag_grid.destroyGrid", _gridDiv, _id);
+                await JS.InvokeVoidAsync("BlazorAgGrid.destroyGrid", _gridDiv, _id);
             }
             catch (Exception ex)
             {

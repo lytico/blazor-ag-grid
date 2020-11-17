@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FBDF4A22-761
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example1", "Example1", "{0E8554D5-4DFA-4F45-B971-E1EF343B40BD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAgGrid", "src\BlazorAgGrid\BlazorAgGrid.csproj", "{26D429F7-CD04-4496-A3B3-3DDDC86F0CA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgGrid.Blazor", "src\BlazorAgGrid\AgGrid.Blazor.csproj", "{26D429F7-CD04-4496-A3B3-3DDDC86F0CA8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{4CA5C76A-C44A-43C8-9D9B-A8A3340C358C}"
 EndProject

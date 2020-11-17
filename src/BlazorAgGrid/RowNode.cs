@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BlazorAgGrid
+﻿namespace AgGrid.Blazor
 {
 
     /// Row Object(aka Row Node)

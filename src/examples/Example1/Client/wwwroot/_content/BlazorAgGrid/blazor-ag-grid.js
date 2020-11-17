@@ -8,22 +8,22 @@ window.exampleJsFunctions = {
 };
 
 
-window.blazor_ag_grid = {
+window.BlazorAgGrid = {
     callbackMap: {}
     , renderCount: 0
     , createGrid: function (gridDiv, gridOptions, gridEvents, gridCallbacks, gridExtras) {
         console.log("JS-creating grid...");
         if (gridOptions.datasource) {
             console.log("DS Ref: " + JSON.stringify(gridOptions.datasource));
-            blazor_ag_grid.createGrid_wrapDatasource(gridOptions, gridOptions.datasource);
+            BlazorAgGrid.createGrid_wrapDatasource(gridOptions, gridOptions.datasource);
         }
 
         if (gridCallbacks) {
-            blazor_ag_grid.createGrid_wrapCallbacks(gridOptions, gridCallbacks);
+            BlazorAgGrid.createGrid_wrapCallbacks(gridOptions, gridCallbacks);
         }
 
         if (gridEvents) {
-            blazor_ag_grid.createGrid_wrapEvents(gridOptions, gridEvents);
+            BlazorAgGrid.createGrid_wrapEvents(gridOptions, gridEvents);
         }
 
         // create the grid passing in the div to use together with the columns & data we want to use
@@ -45,8 +45,8 @@ window.blazor_ag_grid = {
             },
             getRows: function (getRowsParams) {
                 console.log("getting rows for: " + JSON.stringify(getRowsParams));
-                var callbackId = blazor_ag_grid.util_genId();
-                blazor_ag_grid.callbackMap[callbackId] = getRowsParams;
+                var callbackId = BlazorAgGrid.util_genId();
+                BlazorAgGrid.callbackMap[callbackId] = getRowsParams;
                 getRowsParams.callbackId = callbackId;
                 console.log("mapped callback ID for ds: " + callbackId + "; " + JSON.stringify(dsRef));
                 dsRef.invokeMethodAsync('GetRows', getRowsParams);
@@ -71,31 +71,31 @@ window.blazor_ag_grid = {
         if (gridEvents.handlers.SelectionChanged) {
             console.log("Wrapping SelectionChanged handler");
             gridOptions.onSelectionChanged = function () {
-                blazor_ag_grid.gridOptions_onSelectionChanged(gridOptions, gridEvents);
+                BlazorAgGrid.gridOptions_onSelectionChanged(gridOptions, gridEvents);
             }
         }
     }
     , gridOptions_onSelectionChanged: function (gridOptions, gridEvents) {
         console.log("js-onSelectionChanged");
         var selectedNodes = gridOptions.api.getSelectedNodes();
-        var json = blazor_ag_grid.util_stringify(selectedNodes);
+        var json = BlazorAgGrid.util_stringify(selectedNodes);
         var mapped = selectedNodes.map(this.util_mapRowNode);
         console.log("js-selectedNodes: " + JSON.stringify(mapped));
         gridEvents.handlers.SelectionChanged.jsRef.invokeMethodAsync('Invoke', mapped);
     }
     , datasource_successCallback: function (callbackId, rowsThisBlock, lastRow) {
-        var getRowsParams = blazor_ag_grid.callbackMap[callbackId];
+        var getRowsParams = BlazorAgGrid.callbackMap[callbackId];
         console.log("datasource_successCallback: " + callbackId);
         getRowsParams.successCallback(rowsThisBlock, lastRow);
         console.log("unmapping callback: " + callbackId);
-        delete blazor_ag_grid.callbackMap[callbackId];
+        delete BlazorAgGrid.callbackMap[callbackId];
     }
     , datasource_failCallback: function (callbackId, rowsThisBlock, lastRow) {
-        var getRowsParams = blazor_ag_grid.callbackMap[callbackId];
+        var getRowsParams = BlazorAgGrid.callbackMap[callbackId];
         console.log("datasource_failCallback: " + callbackId);
         getRowsParams.failCallback();
         console.log("unmapping callback: " + callbackId);
-        delete blazor_ag_grid.callbackMap[callbackId];
+        delete BlazorAgGrid.callbackMap[callbackId];
     }
     // Cycle-safe version of JSON.stringify, useful for debugging
     , util_stringify: function (obj) {

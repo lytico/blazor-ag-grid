@@ -1,11 +1,9 @@
-﻿using Microsoft.JSInterop;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Microsoft.JSInterop;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     // We define the Datasource property to allow clients to
     // register a custom data source, and also add the needed
@@ -34,7 +32,7 @@ namespace BlazorAgGrid
         [JsonPropertyName("datasource")]
         public DotNetObjectReference<InteropDatasourceProxy> InteropDatasource { get; set; }
 
-        private void PrepareDatasource(object source, PrepareForInteropEventArgs ev)
+        private void PrepareDatasource(object source, GridOptions.PrepareForInteropEventArgs ev)
         {
             Console.WriteLine("Preparing DS");
             InteropDatasource = DotNetObjectReference.Create(
@@ -124,7 +122,7 @@ namespace BlazorAgGrid
             public Task SuccessCallback(object[] rowsThisBlock, int? lastRow = null)
             {
                 Console.WriteLine("GetRowsParamsProxy.SuccessCallback: {0}", CallbackId);
-                return _js.InvokeVoidAsync("blazor_ag_grid.datasource_successCallback",
+                return _js.InvokeVoidAsync("BlazorAgGrid.datasource_successCallback",
                     CallbackId, rowsThisBlock, lastRow).AsTask();
             }
 
@@ -133,7 +131,7 @@ namespace BlazorAgGrid
             public Task FailCallback()
             {
                 Console.WriteLine("GetRowsParamsProxy.FailCallback: {0}", CallbackId);
-                return _js.InvokeVoidAsync("blazor_ag_grid.datasource_failCallback",
+                return _js.InvokeVoidAsync("BlazorAgGrid.datasource_failCallback",
                     CallbackId).AsTask();
             }
         }

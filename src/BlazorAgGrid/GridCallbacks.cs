@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     /// <summary>
     /// Strongly-typed counterpart of:

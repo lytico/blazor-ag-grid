@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace BlazorAgGrid
+namespace AgGrid.Blazor
 {
     // ag-Grid treats null values differently from undefined values in its
     // inputs which means we can't just set (or leave) values as null to

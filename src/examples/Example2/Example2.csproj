@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BlazorAgGrid\BlazorAgGrid.csproj" />
+    <ProjectReference Include="..\..\BlazorAgGrid\AgGrid.Blazor.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -29,22 +29,18 @@
      -    https://github.com/dotnet/aspnetcore/issues/19907
      -    https://github.com/dotnet/aspnetcore/issues/19796
     -->
-  <Target Name="PublishGHPages"  AfterTargets="AfterPublish">
+  <Target Name="PublishGHPages" AfterTargets="AfterPublish">
     <Message Importance="high" Text="Publishing output from [$(PublishDir)] to GH Pages directory." />
-    <Copy SourceFiles="@(GHPagesFiles)"
-          DestinationFiles="@(GHPagesFiles->'$(GHPagesRoot)/%(RecursiveDir)%(Filename)%(Extension)')" />
-    <Move SourceFiles="$(GHPagesRoot)/index.html"
-          DestinationFiles="$(GHPagesRoot)/404.html" />
+    <Copy SourceFiles="@(GHPagesFiles)" DestinationFiles="@(GHPagesFiles->'$(GHPagesRoot)/%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Move SourceFiles="$(GHPagesRoot)/index.html" DestinationFiles="$(GHPagesRoot)/404.html" />
 
     <PropertyGroup>
       <NoJekyll>
         This file disables Jekyll processing so that we can serve up files with a `_` prefix.
       </NoJekyll>
     </PropertyGroup>
-    <WriteLinesToFile File="$(GHPagesRoot)/.nojekyll" Lines="$(NoJekyll)"
-                      Overwrite="true" />
-    <WriteLinesToFile File="$(GHPagesRoot)/.gitattributes" Lines="* binary"
-                      Overwrite="true" />
+    <WriteLinesToFile File="$(GHPagesRoot)/.nojekyll" Lines="$(NoJekyll)" Overwrite="true" />
+    <WriteLinesToFile File="$(GHPagesRoot)/.gitattributes" Lines="* binary" Overwrite="true" />
     <Message Importance="high" Text="GH Pages published to [$(GHPagesRoot)]" />
   </Target>
 
