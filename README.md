@@ -93,7 +93,7 @@ specific to this Blazor component by also adding this to your
 `<head>` section:
 
 ```javascript
-    <script src="_content/BlazorAgGrid/blazor-ag-grid.js"></script>
+    <script src="_content/AgGrid.Blazor/blazor-ag-grid.js"></script>
 ```
 
 Finally, in your Blazor pages, drop in the `<AgGrid>` component
