@@ -7,7 +7,7 @@ using Microsoft.JSInterop;
 
 namespace AgGrid.Blazor
 {
-    public partial class AgGrid : ComponentBase, IDisposable
+    public partial class Grid : ComponentBase, IDisposable
     {
         private static readonly JsonSerializerOptions AgGridJsonSerOptions = new JsonSerializerOptions
         {
