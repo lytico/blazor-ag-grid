@@ -26,26 +26,26 @@ else
         <div class="row">
             <div class="col">
                 <h4>Albums:</h4>
-                <AgGrid @ref="albumGrid" WidthStyle="100%" HeightStyle="500px"
+                <Grid @ref="albumGrid" WidthStyle="100%" HeightStyle="500px"
                         Options="albumOp" Events="albumEv" ConfigureScript="example4_fetchData5_albums_configure">
                     <GridColumn IsResizable="true" IsSortable="true" Header="ID" Field="id" />
                     <GridColumn IsResizable="true" IsSortable="true" Header="User ID" Field="userId" />
                     <GridColumn IsResizable="true" IsSortable="true" Header="Title" Field="title" />
-                </AgGrid>
+                </Grid>
             </div>
 
             <div class="col">
                 <div class="container">
                     <div class="row">
                         <h4>Photos:</h4>
-                        <AgGrid @ref="photoGrid" WidthStyle="100%" HeightStyle="230px"
+                        <Grid @ref="photoGrid" WidthStyle="100%" HeightStyle="230px"
                                 Options="photoOp" Events="photoEv" ConfigureScript="example4_fetchData5_photos_configure">
                             <GridColumn IsResizable="true" IsSortable="true" Header="ID" Field="id" />
                             <GridColumn IsResizable="true" IsSortable="true" Header="Album ID" Field="albumId" />
                             <GridColumn IsResizable="true" IsSortable="true" Header="Title" Field="title" />
                             <GridColumn IsResizable="true" IsSortable="true" Header="URL" Field="url" />
                             <GridColumn IsResizable="true" IsSortable="true" Header="Thumbnail URL" Field="thumbnailUrl" />
-                        </AgGrid>
+                        </Grid>
                     </div>
                     @if (thumbnails == null)
                     {
@@ -74,12 +74,12 @@ else
 @code {
     private int renderCount = 0;
 
-    private AgGrid albumGrid;
+    private Grid albumGrid;
     private AlbumsDataSource albumDs;
     private GridOptions albumOp;
     private GridEvents albumEv;
 
-    private AgGrid photoGrid;
+    private Grid photoGrid;
     private PhotosDataSource photoDs;
     private GridOptions photoOp;
     private GridEvents photoEv;

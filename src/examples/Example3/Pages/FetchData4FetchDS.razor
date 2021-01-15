@@ -35,18 +35,18 @@
 }
 else
 {
-    <AgGrid @ref="photoGrid" WidthStyle="100%" HeightStyle="300px" Options="photoOp" Events="photoEv"
+    <Grid @ref="photoGrid" WidthStyle="100%" HeightStyle="300px" Options="photoOp" Events="photoEv"
             ConfigureScript="example4_fetchData4_configure">
         <GridColumn IsResizable="true" IsSortable="true" Header="ID" Field="id" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Album ID" Field="albumId" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Title" Field="title" />
         <GridColumn IsResizable="true" IsSortable="true" Header="URL" Field="url" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Thumbnail URL" Field="thumbnailUrl" />
-    </AgGrid>
+    </Grid>
 }
 
 @code {
-    private AgGrid photoGrid;
+    private Grid photoGrid;
     private PhotosDataSource dataSource;
     private GridOptions photoOp;
     private GridEvents photoEv;

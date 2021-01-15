@@ -1,5 +1,6 @@
 ﻿@page "/fetchdata-fetchds"
 @using Example1.Shared
+@using System.Net.Http.Json
 @inject HttpClient Http
 
 <h1>Weather forecast</h1>
@@ -19,7 +20,7 @@ else
 {
     <p>Render Count: @renderCount</p>
 
-    <AgGrid WidthStyle="100%" HeightStyle="300px" Options="op" Callbacks="cb" Events="ev">
+    <Grid WidthStyle="100%" HeightStyle="300px" Options="op" Callbacks="cb" Events="ev">
         <GridColumn IsResizable="true" IsSortable="true" Header="ID" Field="id" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Album ID" Field="albumId" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Title" Field="title" />
@@ -27,7 +28,7 @@ else
         <GridColumn IsResizable="true" IsSortable="true" Header="Thumbnail URL" Field="thumbnailUrl" />
 
         @RenderCount()
-    </AgGrid>
+    </Grid>
 }
 
 @code {
@@ -128,7 +129,7 @@ else
                     ? (int?)totalCountInt
                     : null;
 
-                var photos = await Http.GetJsonAsync<Photo[]>(url);
+                var photos = await Http.GetFromJsonAsync<Photo[]>(url);
                 Console.WriteLine("From [{0}:{1}], got [{2}] row(s) out of [{3}]",
                     getParams.StartRow, getParams.EndRow, photos.Length, totalCount);
 
