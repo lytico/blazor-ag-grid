@@ -35,6 +35,7 @@ namespace AgGrid.Blazor
         [Parameter] public GridEvents Events { get; set; }
         [Parameter] public GridCallbacks Callbacks { get; set; }
         [Parameter] public string ConfigureScript { get; set; }
+        [Parameter] public string Class { get; set; } = "ag-theme-balham";
 
         [Inject] private IJSRuntime JS { get; set; }
 
