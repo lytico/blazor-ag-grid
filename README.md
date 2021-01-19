@@ -40,7 +40,7 @@ Here is a list of features that are currently supported:
   * cell-selection suppression
   * datasource page caching
   * row deselection
-  * customize a column row view using the CellRenderer
+  * [customize](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/examples/Example3/Pages/FetchData5MultiFetchDS.razor.cs#L57) a column row view using [registered](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/examples/Example3/wwwroot/Pages/ag-grid-script-config.ts#L4) the CellRenderer
 * Grid and Column APIs
 * local JS script configuration
 * Works with both Blazor WASM and Blazor Server hosting models
