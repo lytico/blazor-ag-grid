@@ -1,18 +1,23 @@
 ﻿function example4_fetchData5_albums_configure(gridOptions) {
     gridOptions.getRowNodeId = node => "" + node.id;
     gridOptions.components = {
-        redColorCellRenderer: RedColorCellRenderer
+        ClassColorCellRenderer: ColorCellRenderer,
+        funcColorCellRenderer: colorCellRenderer
     };
 };
 
+var colorCellRenderer: ICellRendererFunc = function (parameters: ICellRendererParams | any): HTMLElement | string {
+    return `<span style="color:${parameters.color};">${parameters.value}</span>`;
+}
+
 /** cell renderer class */
-class RedColorCellRenderer implements ICellRendererComp {
+class ColorCellRenderer implements ICellRendererComp {
     public eGui;
 
     // init method gets the details of the cell to be renderer
-    init(params: ICellRendererParams) {
+    init(params: ICellRendererParams|any) {
         this.eGui = document.createElement('span');
-        this.eGui.style = "color:red;";
+        this.eGui.style = `color:${params.color};`;
         this.eGui.innerHTML = params.value;
     };
 
@@ -51,7 +56,7 @@ interface ICellRendererParams {
 }
 
 interface ICellRendererFunc {
-    (params: any): HTMLElement | string;
+    (params: ICellRendererParams|any): HTMLElement | string;
 }
 
 interface ICellRendererComp {

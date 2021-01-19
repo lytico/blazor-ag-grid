@@ -48,28 +48,23 @@ namespace Example3.Pages
                 SuppressCellSelection = true,
                 ColumnDefinitions = new[]
                 {
-                    //new ColumnDefinition
-                    //{
-                    //    HeaderName = "Button",
-                    //    Field = "",
-                    //    IsResizable = true,
-                    //    IsSortable = true,
-                    //    СellRenderer = "myCellRender",
-                    //},
                     new ColumnDefinition
                     {
                         HeaderName = "ID",
                         Field = "id",
                         IsResizable = true,
                         IsSortable = true,
-                        CellRenderer = "redColorCellRenderer"
+                        CellRenderer = "funcColorCellRenderer",
+                        CellRendererParams = new { color = "red" }
                     },
                     new ColumnDefinition
                     {
                         HeaderName = "User ID",
                         Field = "userId",
                         IsResizable = true,
-                        IsSortable = true
+                        IsSortable = true,
+                        CellRenderer = "ClassColorCellRenderer",
+                        CellRendererParams = new { color = "cyan" }
                     },
                     new ColumnDefinition
                     {

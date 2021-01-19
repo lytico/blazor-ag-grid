@@ -1,29 +1,33 @@
 function example4_fetchData5_albums_configure(gridOptions) {
     gridOptions.getRowNodeId = function (node) { return "" + node.id; };
     gridOptions.components = {
-        redColorCellRenderer: RedColorCellRenderer
+        ClassColorCellRenderer: ColorCellRenderer,
+        funcColorCellRenderer: colorCellRenderer
     };
 }
 ;
+var colorCellRenderer = function (parameters) {
+    return "<span style=\"color:" + parameters.color + ";\">" + parameters.value + "</span>";
+};
 /** cell renderer class */
-var RedColorCellRenderer = /** @class */ (function () {
-    function RedColorCellRenderer() {
+var ColorCellRenderer = /** @class */ (function () {
+    function ColorCellRenderer() {
     }
     // init method gets the details of the cell to be renderer
-    RedColorCellRenderer.prototype.init = function (params) {
+    ColorCellRenderer.prototype.init = function (params) {
         this.eGui = document.createElement('span');
-        this.eGui.style = "color:red;";
+        this.eGui.style = "color:" + params.color + ";";
         this.eGui.innerHTML = params.value;
     };
     ;
-    RedColorCellRenderer.prototype.getGui = function () {
+    ColorCellRenderer.prototype.getGui = function () {
         return this.eGui;
     };
-    RedColorCellRenderer.prototype.refresh = function (params) {
+    ColorCellRenderer.prototype.refresh = function (params) {
         return false;
     };
-    RedColorCellRenderer.prototype.destroy = function () {
+    ColorCellRenderer.prototype.destroy = function () {
     };
-    return RedColorCellRenderer;
+    return ColorCellRenderer;
 }());
 //# sourceMappingURL=ag-grid-script-config.js.map
