@@ -17,7 +17,7 @@ else
 {
     <p>Render Count: @renderCount</p>
 
-    <AgGrid WidthStyle="100%" HeightStyle="300px">
+    <Grid WidthStyle="100%" HeightStyle="300px">
         <GridColumn IsResizable="true" IsSortable="true" Header="Date" Field="date" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Temp. (C)" Field="temperatureC" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Temp. (F)" Field="temperatureF" />
@@ -28,7 +28,7 @@ else
             <GridRow Data="@forecast" />
         }
         @RenderCount()
-    </AgGrid>
+    </Grid>
 }
 
 @code {

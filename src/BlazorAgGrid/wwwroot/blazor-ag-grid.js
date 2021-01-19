@@ -111,7 +111,7 @@ window.BlazorAgGrid = {
         var gridOptions = BlazorAgGrid.callbackMap[callbackId];
         //console.log("got gridOptions: " + gridOptions);
         var op = gridOptions.Options;
-        var api = op.columnApi
+        var api = op.columnApi;
         var fn = api[name];
         //console.log("has Column API [" + name + "]: " + fn);
         fn.apply(api, args || []);

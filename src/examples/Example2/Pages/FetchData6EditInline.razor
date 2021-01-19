@@ -14,7 +14,7 @@ else
     <div>
         <input type="checkbox" checked="@fullRowEdit" @onchange="ToggleFullRowEdit" /> Full Row Edit (toggling will RELOAD page)
     </div>
-    <AgGrid WidthStyle="100%" HeightStyle="300px"
+    <Grid WidthStyle="100%" HeightStyle="300px"
             Options="gridOpts" Callbacks="gridCb" Events="gridEv">
         <GridColumn IsResizable="true" IsEditable="true" Field="firstName" />
         <GridColumn IsResizable="true" IsEditable="true" Field="lastName" />
@@ -24,7 +24,7 @@ else
         <GridColumn IsResizable="true" IsEditable="true" Field="mood" />
         <GridColumn IsResizable="true" IsEditable="true" Field="country" />
         <GridColumn IsResizable="true" IsEditable="true" Field="lastName" Header="Dup Last Name" />
-    </AgGrid>
+    </Grid>
 
     <div>
         <label>Last Edit (look at the browser console for multiple messages):</label>
@@ -45,13 +45,13 @@ else
 
         gridOpts = new GridOptions
         {
-            EnableRowDeselection = true,
+            SuppressRowDeselection = true,
             SuppressCellSelection = true,
 
             RowModelType = RowModelType.ClientSide,
             RowData = EditSampleData.Sample,
 
-            EditType = fullRowEdit ? EditType.FullRow : (EditType?)null,
+            EditType = fullRowEdit ? EditType.FullRow : (EditType?)null
         };
 
         int id = 0;

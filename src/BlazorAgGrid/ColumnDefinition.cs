@@ -23,5 +23,8 @@ namespace AgGrid.Blazor
 
         [JsonPropertyName("editable")]
         public bool IsEditable { get; set; }
+
+        public string CellRenderer { get; set; }
+        public object CellRendererParams { get; set; }
     }
 }

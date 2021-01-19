@@ -10,11 +10,11 @@
 }
 else
 {
-    <AgGrid WidthStyle="100%" HeightStyle="300px"
+    <Grid WidthStyle="100%" HeightStyle="300px"
             Options="gridOpts" Callbacks="gridCb">
         <GridColumn IsResizable="true" Header="Job Title" Field="jobTitle" />
         <GridColumn IsResizable="true" Header="Employment Type" Field="employmentType" />
-    </AgGrid>
+    </Grid>
 }
 
 @code {
@@ -25,7 +25,7 @@ else
     {
         gridOpts = new GridOptions
         {
-            EnableRowDeselection = true,
+            SuppressRowDeselection = true,
             SuppressCellSelection = true,
 
             TreeData = true,

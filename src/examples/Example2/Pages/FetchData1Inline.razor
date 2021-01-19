@@ -10,7 +10,7 @@
 
 <p>Render Count: @renderCount</p>
 
-<AgGrid WidthStyle="100%" HeightStyle="300px" Events="new GridEvents()">
+<Grid WidthStyle="100%" HeightStyle="300px" Events="new GridEvents()">
         <GridColumn Header="Make" Field="make" />
         <GridColumn Header="Model" Field="model" />
         <GridColumn Header="Price" Field="price" />
@@ -18,7 +18,7 @@
         <GridRow Data="@(new { make = $"Toyota#{RenderCount()}", model = "Celica", price = 35000 })" />
         <GridRow Data="@(new { make = $"Ford#{RenderCount()}", model = "Mondeo", price = 32000 })" />
         <GridRow Data="@(new { make = $"Porsche#{RenderCount()}", model = "Boxter", price = 72000 })" />
-</AgGrid>
+</Grid>
 
 @code {
     private int renderCount = 0;

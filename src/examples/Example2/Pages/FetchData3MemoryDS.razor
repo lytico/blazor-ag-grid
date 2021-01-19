@@ -17,14 +17,14 @@ else
 {
     <p>Render Count: @renderCount</p>
 
-    <AgGrid WidthStyle="100%" HeightStyle="300px" Options="gridOpts">
+    <Grid WidthStyle="100%" HeightStyle="300px" Options="gridOpts">
         <GridColumn IsResizable="true" IsSortable="true" Header="Date" Field="date" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Temp. (C)" Field="temperatureC" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Temp. (F)" Field="temperatureF" />
         <GridColumn IsResizable="true" IsSortable="true" Header="Summary" Field="summary" />
 
         @RenderCount()
-    </AgGrid>
+    </Grid>
 }
 
 @code {
@@ -43,7 +43,7 @@ else
         {
             Datasource = new WeatherDataSource { Http = Http },
             RowModelType = RowModelType.Infinite,
-            EnableRowDeselection = true,
+            SuppressRowDeselection = true,
             SuppressCellSelection = true,
         };
     }

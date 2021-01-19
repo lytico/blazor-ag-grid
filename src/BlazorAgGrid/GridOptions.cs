@@ -63,8 +63,8 @@ namespace AgGrid.Blazor
         public bool? EnableRowMultiSelectWithClick { get; set; }
         /// If true then rows will be deselected
         /// if you hold down ctrl + click the row.
-        [JsonPropertyName("rowDeselection")]
-        public bool? EnableRowDeselection { get; set; }
+        [JsonPropertyName("suppressRowDeselection")]
+        public bool? SuppressRowDeselection { get; set; }
         /// If true, row selection won't happen when rows are clicked.
         /// Use when you want checkbox selection exclusively.
         public bool? SuppressRowClickSelection { get; set; }
