@@ -352,3 +352,4 @@ MigrationBackup/
 ## Standard
 _IGNORE
 _TMP
+*.js.map
