@@ -40,6 +40,7 @@ Here is a list of features that are currently supported:
   * cell-selection suppression
   * datasource page caching
   * row deselection
+  * customize a column row view using the CellRenderer
 * Grid and Column APIs
 * local JS script configuration
 * Works with both Blazor WASM and Blazor Server hosting models
