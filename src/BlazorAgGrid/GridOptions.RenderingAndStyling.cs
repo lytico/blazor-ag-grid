@@ -12,7 +12,7 @@
         /// Default Row Height in pixels.
         /// Default: 25
         /// </summary>
-        public int RowHeight { get; set; }
+        public int? RowHeight { get; set; }
         /// <summary>
         /// Set to true to enable Row Animation.
         /// Default: false

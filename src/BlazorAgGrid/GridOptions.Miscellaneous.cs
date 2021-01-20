@@ -14,12 +14,13 @@
         /// Default: false
         /// </summary>
         public bool EnableBrowserTooltips { get; set; }
+
         /// <summary>
         /// Switch between layout options. See Printing and Auto Height.
         /// Default: 'normal'
         /// Options: 'normal', 'autoHeight', 'print'
         /// </summary>
-        public string DomLayout { get; set; }
+        public string DomLayout { get; set; } = "normal";
         /// <summary>
         /// When true, the order of rows and columns in the DOM are consistent with what is on screen. See Accessibility - Row and Column Order.
         /// Default: false
