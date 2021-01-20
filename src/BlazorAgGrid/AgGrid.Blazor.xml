@@ -1,0 +1,443 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AgGrid.Blazor</name>
+    </assembly>
+    <members>
+        <member name="T:AgGrid.Blazor.ColumnDefinition">
+            <summary>
+            Strongly-typed representation of:
+              https://www.ag-grid.com/javascript-grid-column-properties/
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.HeaderName">
+            <summary>
+            The name to render in the column header. If not specified and field is specified, the field name will be used as the header name.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.HeaderClass">
+            <summary>
+            Class to use for the header cell. Can be a string, array of strings, or function.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.ToolPanelClass">
+            <summary>
+            Class to use for the tool panel cell. Can be a string, array of strings, or function.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.SuppressColumnsToolPanel">
+            <summary>
+            Set to true if you do not want this column or group to appear in the Columns Tool Panel.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.SuppressFiltersToolPanel">
+            <summary>
+            Set to true if you do not want this column (filter) or group (filter group) to appear in the Filters Tool Panel.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.Flex">
+            <summary>
+            Used instead of width when the goal is to fill the remaining empty space of the grid. See Column Flex.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.Hide">
+            <summary>
+            Set to true for this column to be hidden. You might think it would make more sense to call this field visible
+            and mark it false to hide, but we want all default values to be false and we want columns to be visible by default.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.CellStyle">
+            <summary>
+            The style to give a particular cell. See Cell Style.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.CellClass">
+            <summary>
+            The class to give a particular cell. See Cell Class.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.CellRenderer">
+            <summary>
+            cellRenderer to use for this column.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.CellRendererParams">
+            <summary>
+            Params to be passed to cell renderer component.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditor">
+            <summary>
+            cellEditor to use for this column.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditorParams">
+            <summary>
+            Params to be passed to cell editor component.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.SuppressMenu">
+            <summary>
+            Set to true if no menu should be shown for this column header.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.AutoHeight">
+            <summary>
+            Set to true to have the grid calculate the height of a row based on contents of this column.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.WrapText">
+            <summary>
+            Set to true to have the text wrap inside the cell.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.SingleClickEdit">
+            <summary>
+            Set to true to have cells under this column enter edit mode after single click.
+            Default: false
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.GridApi">
+            <summary>
+            Strongly-typed access to:
+              https://www.ag-grid.com/javascript-grid-api/
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridApi.RefreshCellsParams.RowNodes">
+            specify rows, or all rows by default
+        </member>
+        <member name="P:AgGrid.Blazor.GridApi.RefreshCellsParams.Columns">
+            specify columns, or all columns by default
+        </member>
+        <member name="P:AgGrid.Blazor.GridApi.RefreshCellsParams.Force">
+            skips change detection, refresh everything
+        </member>
+        <member name="P:AgGrid.Blazor.GridApi.RedrawRowsParams.RowNodes">
+            the row nodes to redraw
+        </member>
+        <member name="T:AgGrid.Blazor.GridCallbacks">
+            <summary>
+            Strongly-typed counterpart of:
+               https://www.ag-grid.com/javascript-grid-callbacks/
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.GridColumnApi">
+            <summary>
+            Strongly-typed access to:
+              https://www.ag-grid.com/javascript-grid-column-api/
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.GridEvents">
+            <summary>
+            Strongly-typed counterpart of:
+               https://www.ag-grid.com/javascript-grid-events/
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridEvents.SelectionChanged">
+            <summary>
+            Row selection is changed. Use the grid API to get the new row selected.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridEvents.CellValueChanged">
+            <summary>
+            Value has changed after editing.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridEvents.RowValueChanged">
+            <summary>
+            A cell's value within a row has changed. This event corresponds to Full Row Editing only.
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.CellValueChangedDetail">
+            <summary>
+            Value has changed after editing.
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.RowValueChangedEvent">
+            <summary>
+            A cell's value within a row has changed. This event corresponds to Full Row Editing only.
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.GridOptions">
+            <summary>
+            Strongly-typed representation of:
+              https://www.ag-grid.com/javascript-grid-properties/
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.ColumnDefinitions">
+            <summary>
+            Array of Column Definitions.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.DefaultColDef">
+            <summary>
+            A default column definition.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.UnSortIcon">
+            <summary>
+            Set to true to show the 'no sort' icon. See Example Custom Sorting.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.SuppressMenuHide">
+            <summary>
+            Set to true to always show the column menu button, rather than only showing when the mouse is over the column header.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.RowSelection">
+            Type of Row Selection, set to either 'single' or 'multiple'.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.EnableRowMultiSelectWithClick">
+            Set to true to allow multiple rows to be selected
+            using single click.See Multi Select Single Click.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.SuppressRowDeselection">
+            If true then rows will be deselected
+            if you hold down ctrl + click the row.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.SuppressRowClickSelection">
+            If true, row selection won't happen when rows are clicked.
+            Use when you want checkbox selection exclusively.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.SuppressCellSelection">
+            If true, cells won't be selectable. This means cells will
+            not get keyboard focus when you click on them.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.EnableRangeSelection">
+            Set to true to enable Range Selection.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.MaxConcurrentDatasourceRequests">
+            How many concurrent data requests are allowed.Default is 2,
+            so server is only ever hit with 2 concurrent requests.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.MaxBlocksInCache">
+            How many pages to hold in the cache.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.CacheOverflowSize">
+            How many rows to seek ahead when unknown data size.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.InfiniteInitialRowCount">
+            How many rows to initially allow scrolling to in the grid.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.AlwaysShowVerticalScroll">
+            <summary>
+            Set to true to always show the vertical scrollbar.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.DebounceVerticalScrollbar">
+            <summary>
+            Set to true to debounce the vertical scrollbar. Can provide smoother scrolling on older browsers, eg IE.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.SuppressHorizontalScroll">
+            <summary>
+            Set to true to never show the horizontal scroll. This is useful if the grid is aligned with another
+            grid and will scroll when the other grid scrolls. See Aligned Grid as Footer.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.EnablePagination">
+            True - Pagination is enabled. False (Default) - Pagination is disabled.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.PaginationPageSize">
+            Number. How many rows to load per page. Default value = 100.
+            If paginationAutoPageSize is specified, this property is ignored.
+            See example Customising Pagination.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.EnablePaginationAutoPageSize">
+            True - The number of rows to load per page is automatically adjusted
+            by ag-Grid so each page shows enough rows to just fill the area
+            designated for the grid. False (Default) - paginationPageSize is used.
+            See example Auto Page Size.
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.SuppressPaginationPanel">
+            True - The out of the box ag-Grid controls for navigation are hidden.
+            This is useful if pagination=true and you want to provide your own
+            pagination controls. False (Default) - when pagination=true It automatically
+            shows at the bottom the necessary controls so that the user can navigate through
+            the different pages. See example Custom Pagination Controls.
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:AgGrid.Blazor.GridOptions.EnablePaginateChildRows" -->
+        <member name="P:AgGrid.Blazor.GridOptions.TreeData">
+            Enables Tree Data:
+              https://www.ag-grid.com/javascript-grid-tree-data/
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.SuppressPreventDefaultOnMouseWheel">
+            <summary>
+            If true, mouse wheel events will be passed to the browser. Useful if your grid has no vertical scrolls and you want the mouse to scroll the browser page.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.EnableBrowserTooltips">
+            <summary>
+            Set to true to use the browser's default tooltip instead of using ag-Grid's Tooltip Component.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.DomLayout">
+            <summary>
+            Switch between layout options. See Printing and Auto Height.
+            Default: 'normal'
+            Options: 'normal', 'autoHeight', 'print'
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.EnsureDomOrder">
+            <summary>
+            When true, the order of rows and columns in the DOM are consistent with what is on screen. See Accessibility - Row and Column Order.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.AlignedGrids">
+            <summary>
+            A list of grids to treat as Aligned Grids. If grids are aligned then the columns and horizontal scrolling will be kept in sync.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.SuppressContextMenu">
+            <summary>
+            Set to true to not show context menu. Use if you don't want to use the default 'right click' context menu.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.PreventDefaultOnContextMenu">
+            <summary>
+            When using suppressContextMenu, you can use the onCellContextMenu function to provide your own code to handle cell contextmenu events. This flag is useful to prevent the browser from showing its default context menu.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.AllowContextMenuWithControlKey">
+            <summary>
+            Allows context menu to show, even when Ctrl key is held down.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.Icons">
+            <summary>
+            Icons to use inside the grid instead of the grid's default icons.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.RowHeight">
+            <summary>
+            Default Row Height in pixels.
+            Default: 25
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.AnimateRows">
+            <summary>
+            Set to true to enable Row Animation.
+            Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.RowStyle">
+            <summary>
+            The style to give a particular row. See Row Style.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.RowClass">
+            <summary>
+            The class to give a particular row. See Row Class.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.ScrollbarWidth">
+            <summary>
+            Tell the grid how wide the scrollbar is, which is used in grid width calculations.
+            Set only if using non-standard browser-provided scrollbars, so the grid can use the non-standard size in its calculations.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.SuppressRowHoverHighlight">
+            <summary>
+            Set to true to not highlight rows by adding the ag-row-hover CSS class.
+            Default: false
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.IGetRowsParams">
+            <summary>
+            Params for <see cref="!:IDatasource.GetRows()">Infinite Scrolling Datasource</see>, based on:
+              https://www.ag-grid.com/javascript-grid-infinite-scrolling/#datasource-interface
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.IGridDatasource">
+            <summary>
+            Infinite Scrolling Datasource, based on:
+              https://www.ag-grid.com/javascript-grid-infinite-scrolling/#datasource-interface
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.RowNode">
+            Row Object(aka Row Node)
+               https://www.ag-grid.com/javascript-grid-row-node/#row-object-aka-row-node
+            A Row Node represents one row of data.The Row Node will
+            contain a reference to the data item your application
+            provided as well as other runtime information about the
+            row. The Row Node contains attributes, methods and emits
+            events. Additional attributes are used if the Row Node is
+            a group.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.Id">
+            Unique ID for the node. Either provided by the
+            application, or generated by the grid if not.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.Data">
+            The data as provided by the application.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.Parent">
+            The parent node to this node, or empty if top level.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.Level">
+            How many levels this node is from the top when grouping.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.UiLevel">
+            How many levels this node is from the top when grouping
+            in the UI (only different to 'parent' when property
+            groupRemoveSingleChildren= true.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.Group">
+            True if this node is a group node (ie has children).
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.RowPinned">
+            top' or 'bottom' if pinned row, otherwise null or
+            undefined.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.CanFlower">
+            True if this node can flower (ie can be expanded, but
+            has no direct children).
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.ChildFlower">
+            The child flower of this node.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.ChildIndex">
+            Index of this row with respect to it's parent when
+            grouping. Changes when data is sorted.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.FirstChild">
+            True if this is the first child in this group.
+            Changes when data is sorted.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.LastChild">
+            True if this is the last child in this group.
+            Changes when data is sorted.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.Stub">
+            Used by enterprise row model, true if this row
+            node is a stub. A stub is a placeholder row with
+            loading icon while waiting from row to be loaded.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.RowHeight">
+            The row height in pixels.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.RowTop">
+            The row top position in pixels.
+        </member>
+        <member name="P:AgGrid.Blazor.RowNode.QuickFilterAggregateText">
+            If using quick filter, stores a string representation
+            of the row for searching against.
+        </member>
+    </members>
+</doc>

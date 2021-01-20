@@ -11,9 +11,13 @@
     <RepositoryUrl>https://github.com/glazkovalex/blazor-ag-grid</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Product>AgGrid.Blazor</Product>
-    <Version>0.7.1.0</Version>
-    <Copyright>Copyright (C) 2020 Eugene Bekker, GlazkovAlex</Copyright>
+    <Version>0.7.5.0</Version>
+    <Copyright>Copyright (C) 2021 Eugene Bekker, GlazkovAlex</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Temp\GitHub\glazkovalex\blazor-ag-grid\src\BlazorAgGrid\AgGrid.Blazor.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

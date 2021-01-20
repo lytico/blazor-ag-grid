@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +24,7 @@
     <ItemGroup>
       <_BlazorAgGrid_FilesToCopy Include="..\..\BlazorAgGrid\wwwroot\**" />
     </ItemGroup>
-    <Copy SourceFiles="@(_BlazorAgGrid_FilesToCopy)" DestinationFolder="wwwroot\_content\BlazorAgGrid" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(_BlazorAgGrid_FilesToCopy)" DestinationFolder="wwwroot\_content\AgGrid.Blazor" SkipUnchangedFiles="true" />
   </Target>
   
 </Project>
