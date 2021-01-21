@@ -54,7 +54,7 @@ namespace Example3.Pages
                         Field = "id",
                         IsResizable = true,
                         IsSortable = true,
-                        CellRenderer = "funcColorCellRenderer",
+                        CellRendererFramework = "funcColorCellRenderer",
                         CellRendererParams = new { color = "red" }
                     },
                     new ColumnDefinition
@@ -63,7 +63,7 @@ namespace Example3.Pages
                         Field = "userId",
                         IsResizable = true,
                         IsSortable = true,
-                        CellRenderer = "ClassColorCellRenderer",
+                        CellRendererFramework = "ClassColorCellRenderer",
                         CellRendererParams = new { color = "cyan" }
                     },
                     new ColumnDefinition

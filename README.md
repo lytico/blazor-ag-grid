@@ -35,13 +35,15 @@ Here is a list of features that are currently supported:
   * Selection notification
 * Paging
 * Sorting
+* Filtering
 * Various tweaks and customizations to the features above such as:
   * page size
   * cell-selection suppression
   * datasource page caching
   * row deselection
-  * [customize](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/examples/Example3/Pages/FetchData5MultiFetchDS.razor.cs#L57) a column row view using [registered](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/examples/Example3/wwwroot/Pages/ag-grid-script-config.ts#L4) the CellRenderer
-  * customize a column row editer using registered the CellEditor
+  * [customize](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/examples/Example3/Pages/FetchData5MultiFetchDS.razor.cs#L57) a cell view using [registered](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/examples/Example3/wwwroot/Pages/ag-grid-script-config.ts#L4) the CellRendererFramework
+  * customize a cell editor using registered the CellEditorFramework
+  * customize a row filtering using registered the FilterFramework
   * setting styles and classes for columns and rows
 * Grid and Column APIs
 * local JS script configuration

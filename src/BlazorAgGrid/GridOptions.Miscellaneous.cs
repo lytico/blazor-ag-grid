@@ -1,4 +1,6 @@
-﻿namespace AgGrid.Blazor
+﻿using System.Text.Json.Serialization;
+
+namespace AgGrid.Blazor
 {
     public partial class GridOptions
     {
@@ -20,7 +22,7 @@
         /// Default: 'normal'
         /// Options: 'normal', 'autoHeight', 'print'
         /// </summary>
-        public string DomLayout { get; set; } = "normal";
+        public DomLayouts DomLayout { get; set; }
         /// <summary>
         /// When true, the order of rows and columns in the DOM are consistent with what is on screen. See Accessibility - Row and Column Order.
         /// Default: false
@@ -44,5 +46,16 @@
         /// Allows context menu to show, even when Ctrl key is held down.
         /// </summary>
         public bool AllowContextMenuWithControlKey { get; set; }
+    }
+
+    /// <summary>
+    /// Dom layout options
+    /// </summary>
+    [JsonConverter(typeof(EnumConverter))]
+    public enum DomLayouts
+    {
+        Normal = 0,
+        AutoHeight,
+        Print
     }
 }

@@ -20,6 +20,21 @@
             Class to use for the header cell. Can be a string, array of strings, or function.
             </summary>
         </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.HeaderTooltip">
+            <summary>
+            Tooltip for the column header
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.HeaderComponentFramework">
+            <summary>
+            Custom header component to use for this column.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.HeaderComponentParams">
+            <summary>
+            Params to be passed to header component.
+            </summary>
+        </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.ToolPanelClass">
             <summary>
             Class to use for the tool panel cell. Can be a string, array of strings, or function.
@@ -35,6 +50,27 @@
             <summary>
             Set to true if you do not want this column (filter) or group (filter group) to appear in the Filters Tool Panel.
             Default: false
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.IsFiltered">
+            <summary>
+            Set to true to use the default filter. Use the FilterFramework for custom filter. 
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.Filtered">
+            <summary>
+            Set standard filter. Use the FilterFramework for custom filter. 
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.FilterFramework">
+            <summary>
+            Filter component to use for this column. Set to true to use the default filter.
+            true for default filter or name your custom filter 
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.FilterParams">
+            <summary>
+            Custom params to be passed to filter component.
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.Flex">
@@ -61,7 +97,12 @@
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellRenderer">
             <summary>
-            cellRenderer to use for this column.
+            Set standard cellRenderer to use for this column. Use the CellRendererFramework for custom cell renderer. 
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.CellRendererFramework">
+            <summary>
+            Custom cellRenderer name to use for this column.
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellRendererParams">
@@ -69,9 +110,20 @@
             Params to be passed to cell renderer component.
             </summary>
         </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.IsEditable">
+            <summary>
+            Set to true if this column is editable, otherwise false. Can also be a function to have different rows editable.
+            Default: false
+            </summary>
+        </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditor">
             <summary>
-            cellEditor to use for this column.
+            Set standard cellEditor to use for this column. Use the CellEditorFramework for custom cell editor. 
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditorFramework">
+            <summary>
+            Custom cellEditor to use for this column.
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditorParams">
@@ -101,6 +153,71 @@
             <summary>
             Set to true to have cells under this column enter edit mode after single click.
             Default: false
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.Sorts">
+            <summary>
+            Sorting options
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.CellRenderers">
+            <summary>
+            Provided cell renderers
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.CellRenderers.AgAnimateShowChangeCellRendere">
+            <summary>
+            The previous value is temporarily shown beside the old value with a directional arrow showing increase or decrease in value. The old value is then faded out.
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.CellRenderers.AgAnimateSlideCellRenderer">
+            <summary>
+            The previous value shown in a faded fashion and slides, giving a ghosting effect as the old value fades and slides away.
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.CellRenderers.AgGroupCellRenderer">
+            <summary>
+             (ag-Grid Enterprise only): Group Cell Renderer
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.CellEditors">
+            <summary>
+            Provided cell editors
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.CellEditors.AgTextCellEditor">
+            <summary>
+            Simple text editor that uses a standard HTML input. This is the default.
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.CellEditors.AgPopupTextCellEditor">
+            <summary>
+            Same as 'text' but as popup.
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.CellEditors.AgLargeTextCellEditor">
+            <summary>
+            A text popup for inputting larger, multi-line text.
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.CellEditors.AgSelectCellEditor">
+            <summary>
+            Simple editor that uses a standard HTML select.
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.CellEditors.AgPopupSelectCellEditor">
+            <summary>
+            Same as 'select' but as popup.
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.CellEditors.AgRichSelectCellEditor">
+            <summary>
+            (ag-Grid Enterprise only): A rich select popup that uses row virtualisation.
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.ColumnFilters">
+            <summary>
+            Types simple filters
             </summary>
         </member>
         <member name="T:AgGrid.Blazor.GridApi">
@@ -356,6 +473,11 @@
             <summary>
             Set to true to not highlight rows by adding the ag-row-hover CSS class.
             Default: false
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.DomLayouts">
+            <summary>
+            Dom layout options
             </summary>
         </member>
         <member name="T:AgGrid.Blazor.IGetRowsParams">

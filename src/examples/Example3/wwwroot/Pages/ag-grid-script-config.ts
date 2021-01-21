@@ -6,9 +6,8 @@
     };
 };
 
-var colorCellRenderer: ICellRendererFunc = function (parameters: ICellRendererParams | any): HTMLElement | string {
-    return `<span style="color:${parameters.color};">${parameters.value}</span>`;
-}
+var colorCellRenderer: ICellRendererFunc = (parameters: ICellRendererParams | any): HTMLElement | string =>
+    `<span style="color:${parameters.color};">${parameters.value}</span>`;
 
 /** cell renderer class */
 class ColorCellRenderer implements ICellRendererComp {
