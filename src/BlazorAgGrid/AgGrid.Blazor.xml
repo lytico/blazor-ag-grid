@@ -27,7 +27,7 @@
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.HeaderComponentFramework">
             <summary>
-            Custom header component to use for this column.
+            Custom header component to use for this column. https://www.ag-grid.com/documentation/javascript/component-header/#header-component
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.HeaderComponentParams">
@@ -59,13 +59,8 @@
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.Filtered">
             <summary>
-            Set standard filter. Use the FilterFramework for custom filter. 
-            </summary>
-        </member>
-        <member name="P:AgGrid.Blazor.ColumnDefinition.FilterFramework">
-            <summary>
-            Filter component to use for this column. Set to true to use the default filter.
-            true for default filter or name your custom filter 
+            Set standard filter by enum ColumnFilters or set name custom filter component or set true to use the default filter.
+            <remarks>https://www.ag-grid.com/documentation/javascript/component-filter/#example-custom-filter</remarks>
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.FilterParams">
@@ -97,12 +92,7 @@
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellRenderer">
             <summary>
-            Set standard cellRenderer to use for this column. Use the CellRendererFramework for custom cell renderer. 
-            </summary>
-        </member>
-        <member name="P:AgGrid.Blazor.ColumnDefinition.CellRendererFramework">
-            <summary>
-            Custom cellRenderer name to use for this column.
+            Set standard cellRenderer by enum CellRenderers or name for custom cell renderer. 
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellRendererParams">
@@ -118,12 +108,7 @@
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditor">
             <summary>
-            Set standard cellEditor to use for this column. Use the CellEditorFramework for custom cell editor. 
-            </summary>
-        </member>
-        <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditorFramework">
-            <summary>
-            Custom cellEditor to use for this column.
+            Set standard cellEditor by enum CellEditors or name for custom cell editor. 
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditorParams">
@@ -180,6 +165,11 @@
              (ag-Grid Enterprise only): Group Cell Renderer
             </summary>
         </member>
+        <member name="F:AgGrid.Blazor.CellRenderers.AgLoadingCellRenderer">
+            <summary>
+            (ag-Grid Enterprise only) Cell editor for loading row when using Enterprise row model.
+            </summary>
+        </member>
         <member name="T:AgGrid.Blazor.CellEditors">
             <summary>
             Provided cell editors
@@ -218,6 +208,26 @@
         <member name="T:AgGrid.Blazor.ColumnFilters">
             <summary>
             Types simple filters
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.ColumnFilters.AgTextColumnFilter">
+            <summary>
+            Simple text filter (default when using ag-Grid Free).
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.ColumnFilters.AgNumberColumnFilter">
+            <summary>
+            Number filter.
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.ColumnFilters.AgDateColumnFilter">
+            <summary>
+            Date filter.
+            </summary>
+        </member>
+        <member name="F:AgGrid.Blazor.ColumnFilters.AgSetColumnFilter">
+            <summary>
+            Set filter (default when using ag-Grid Enterprise).
             </summary>
         </member>
         <member name="T:AgGrid.Blazor.GridApi">

@@ -22,7 +22,7 @@ namespace AgGrid.Blazor
         /// </summary>
         public string HeaderTooltip { get; set; }
         /// <summary>
-        /// Custom header component to use for this column.
+        /// Custom header component to use for this column. https://www.ag-grid.com/documentation/javascript/component-header/#header-component
         /// </summary>
         public string HeaderComponentFramework { get; set; }
         /// <summary>
@@ -55,18 +55,13 @@ namespace AgGrid.Blazor
         /// Set to true to use the default filter. Use the FilterFramework for custom filter. 
         /// </summary>
         [JsonIgnore]
-        public bool? IsFiltered { get => Filtered != null || FilterFramework != null; set { if (value == true) FilterFramework = true; } }
-
+        public bool? IsFiltered { get => Filtered != null; set { if (value == true) Filtered = true; } }
         /// <summary>
-        /// Set standard filter. Use the FilterFramework for custom filter. 
+        /// Set standard filter by enum ColumnFilters or set string name custom filter component or set true to use the default filter.
+        /// <remarks>https://www.ag-grid.com/documentation/javascript/component-filter/#example-custom-filter</remarks>
         /// </summary>
-        public ColumnFilters? Filtered { get; set; }
+        public object Filtered { get; set; }
 
-        /// <summary>
-        /// Filter component to use for this column. Set to true to use the default filter.
-        /// true for default filter or name your custom filter 
-        /// </summary>
-        public object FilterFramework { get; set; }
         /// <summary>
         /// Custom params to be passed to filter component.
         /// </summary>
@@ -95,13 +90,9 @@ namespace AgGrid.Blazor
         public string[] CellClass { get; set; }
 
         /// <summary>
-        /// Set standard cellRenderer to use for this column. Use the CellRendererFramework for custom cell renderer. 
+        /// Set standard cellRenderer by enum CellRenderers or string name for custom cell renderer. 
         /// </summary>
-        public CellRenderers? CellRenderer { get; set; }
-        /// <summary>
-        /// Custom cellRenderer name to use for this column.
-        /// </summary>
-        public string CellRendererFramework { get; set; } 
+        public object CellRenderer { get; set; }
         /// <summary>
         /// Params to be passed to cell renderer component.
         /// </summary>
@@ -114,13 +105,9 @@ namespace AgGrid.Blazor
         [JsonPropertyName("editable")]
         public bool IsEditable { get; set; }
         /// <summary>
-        /// Set standard cellEditor to use for this column. Use the CellEditorFramework for custom cell editor. 
+        /// Set standard cellEditor by enum CellEditors or string name for custom cell editor. 
         /// </summary>
-        public CellEditors? CellEditor { get; set; }
-        /// <summary>
-        /// Custom cellEditor to use for this column.
-        /// </summary>
-        public string CellEditorFramework { get; set; }
+        public object CellEditor { get; set; }
         /// <summary>
         /// Params to be passed to cell editor component.
         /// </summary>
@@ -157,6 +144,8 @@ namespace AgGrid.Blazor
         Desc
     }
 
+    // Grid Provided Components https://www.ag-grid.com/documentation/javascript/components/#grid-provided-components
+
     /// <summary>
     /// Provided cell renderers
     /// </summary>
@@ -174,7 +163,11 @@ namespace AgGrid.Blazor
         /// <summary>
         ///  (ag-Grid Enterprise only): Group Cell Renderer
         /// </summary>
-        AgGroupCellRenderer
+        AgGroupCellRenderer,
+        /// <summary>
+        /// (ag-Grid Enterprise only) Cell editor for loading row when using Enterprise row model.
+        /// </summary>
+        AgLoadingCellRenderer
     }
 
     /// <summary>
@@ -214,9 +207,21 @@ namespace AgGrid.Blazor
     /// </summary>
     [JsonConverter(typeof(EnumConverter))]
     public enum ColumnFilters{
+        /// <summary>
+        /// Simple text filter (default when using ag-Grid Free).
+        /// </summary>
         AgTextColumnFilter,
+        /// <summary>
+        /// Number filter.
+        /// </summary>
         AgNumberColumnFilter,
+        /// <summary>
+        /// Date filter.
+        /// </summary>
         AgDateColumnFilter,
+        /// <summary>
+        /// Set filter (default when using ag-Grid Enterprise).
+        /// </summary>
         AgSetColumnFilter
     }
 }
