@@ -11,6 +11,12 @@ namespace AgGrid.Blazor
 
         public IReadOnlyDictionary<string, object> Handlers => _handlers;
 
+        private void Set(Action action,
+            [CallerMemberName] string name = null)
+        {
+            _handlers[name] = new EventAction(action);
+        }
+
         private void Set<TInput>(Action<TInput> action,
             [CallerMemberName]string name = null)
         {
@@ -21,6 +27,22 @@ namespace AgGrid.Blazor
                 [CallerMemberName]string name = null)
         {
             _handlers[name] = new EventFunc<TInput, TResult>(func);
+        }
+
+        internal class EventAction
+        {
+            private Action _action;
+
+            public EventAction(Action action)
+            {
+                JsRef = DotNetObjectReference.Create(this);
+                _action = action;
+            }
+
+            public DotNetObjectReference<EventAction> JsRef { get; }
+
+            [JSInvokable]
+            public void Invoke() => _action();
         }
 
         internal class EventAction<TInput>

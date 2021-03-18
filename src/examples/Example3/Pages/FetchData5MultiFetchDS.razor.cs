@@ -101,7 +101,7 @@ namespace Example3.Pages
                             Console.WriteLine("Failed to update DS: " + ex.ToString());
                         }
                     });
-                }),
+                })
             };
 
             //var module = await Module;

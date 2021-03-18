@@ -20,6 +20,17 @@ namespace AgGrid.Blazor
         /// A cell's value within a row has changed. This event corresponds to Full Row Editing only.
         /// </summary>
         public Action<RowValueChangedEvent> RowValueChanged { set => Set(value); }
+
+        /// <summary>
+        /// Fired the first time data is rendered into the grid.
+        /// </summary>
+        public Action FirstDataRendered { set => Set(value); }
+
+        /// <summary>
+        /// The grid has initialised. The name 'ready' was influenced by the author's time programming the Commodore 64.
+        /// Use this event if, for example, you need to use the grid's API to fix the columns to size.
+        /// </summary>
+        public Action GridReady { set => Set(value); }
     }
 
     /// <summary>
@@ -52,5 +63,10 @@ namespace AgGrid.Blazor
         public string RowPinned { get; set; }
         public dynamic Context { get; set; }
         public dynamic Event { get; set; }
+    }
+
+    public class FirstDataRenderedEvent
+    {
+        public string Type { get; set; }
     }
 }

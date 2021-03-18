@@ -110,6 +110,18 @@ window.BlazorAgGrid = {
                 var id = gridEvents.handlers.RowValueChanged.jsRef.invokeMethodAsync("Invoke", ev);
             }
         }
+        if (gridEvents.handlers.FirstDataRendered) {
+            console.log("Wrapping FirstDataRendered handler");
+            gridOptions.onFirstDataRendered = function () {
+                var id = gridEvents.handlers.FirstDataRendered.jsRef.invokeMethodAsync("Invoke");
+            }
+        }
+        if (gridEvents.handlers.GridReady) {
+            console.log("Wrapping GridReady handler");
+            gridOptions.onGridReady = function () {
+                var id = gridEvents.handlers.GridReady.jsRef.invokeMethodAsync("Invoke");
+            }
+        }
     }
     , gridOptions_callGridApi: function (callbackId, name, args) {
         //console.log("getting gridOptions for [" + callbackId + "]");
@@ -117,7 +129,7 @@ window.BlazorAgGrid = {
         //console.log("got gridOptions: " + gridOptions);
         var op = gridOptions.Options;
         var api = op.api;
-        var fn = api[name]
+        var fn = api[name];
         //console.log("has Grid API [" + name + "]: " + fn);
         fn.apply(api, args || []);
     }

@@ -85,6 +85,14 @@ else
             {
                 Console.WriteLine("SELECTION HAS CHANGED! " + nodes.Length);
             }),
+            FirstDataRendered = () =>
+            {
+                Console.WriteLine("FirstDataRendered");
+            },
+            GridReady = () =>
+            {
+                Console.WriteLine("GridReady");
+            }
         };
     }
 

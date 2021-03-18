@@ -59,7 +59,7 @@
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.Filtered">
             <summary>
-            Set standard filter by enum ColumnFilters or set name custom filter component or set true to use the default filter.
+            Set standard filter by enum ColumnFilters or set string name custom filter component or set true to use the default filter.
             <remarks>https://www.ag-grid.com/documentation/javascript/component-filter/#example-custom-filter</remarks>
             </summary>
         </member>
@@ -92,7 +92,7 @@
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellRenderer">
             <summary>
-            Set standard cellRenderer by enum CellRenderers or name for custom cell renderer. 
+            Set standard cellRenderer by enum CellRenderers or string name for custom cell renderer. 
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellRendererParams">
@@ -108,7 +108,7 @@
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditor">
             <summary>
-            Set standard cellEditor by enum CellEditors or name for custom cell editor. 
+            Set standard cellEditor by enum CellEditors or string name for custom cell editor. 
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.ColumnDefinition.CellEditorParams">
@@ -279,6 +279,17 @@
         <member name="P:AgGrid.Blazor.GridEvents.RowValueChanged">
             <summary>
             A cell's value within a row has changed. This event corresponds to Full Row Editing only.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridEvents.FirstDataRendered">
+            <summary>
+            Fired the first time data is rendered into the grid.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridEvents.GridReady">
+            <summary>
+            The grid has initialised. The name 'ready' was influenced by the author's time programming the Commodore 64.
+            Use this event if, for example, you need to use the grid's API to fix the columns to size.
             </summary>
         </member>
         <member name="T:AgGrid.Blazor.CellValueChangedDetail">
