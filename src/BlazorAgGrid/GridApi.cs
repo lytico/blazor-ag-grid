@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.JSInterop;
 
 namespace AgGrid.Blazor
@@ -57,7 +58,7 @@ namespace AgGrid.Blazor
         /// Set rows
         /// </summary>
         /// <param name="rows">Data of rows</param>
-        public Task SetRowData(object rows)
+        public Task SetRowData(IEnumerable<object> rows)
         {
             return CallApi("setRowData", rows);
         }
