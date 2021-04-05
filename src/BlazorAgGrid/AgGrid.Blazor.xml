@@ -236,6 +236,18 @@
               https://www.ag-grid.com/javascript-grid-api/
             </summary>
         </member>
+        <member name="M:AgGrid.Blazor.GridApi.SetRowData(System.Object)">
+            <summary>
+            Set rows
+            </summary>
+            <param name="rows">Data of rows</param>
+        </member>
+        <member name="M:AgGrid.Blazor.GridApi.SetDatasource(AgGrid.Blazor.IGridDatasource)">
+            <summary>
+            Set new datasource for Infinite Row Model.
+            </summary>
+            <param name="datasource">New datasource</param>
+        </member>
         <member name="P:AgGrid.Blazor.GridApi.RefreshCellsParams.RowNodes">
             specify rows, or all rows by default
         </member>

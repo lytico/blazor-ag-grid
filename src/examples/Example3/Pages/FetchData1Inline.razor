@@ -7,10 +7,11 @@
 <p>Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="UpdateRowData">Update row data</button>
 
 <p>Render Count: @renderCount</p>
 
-<Grid WidthStyle="100%" HeightStyle="300px" Events="new GridEvents()">
+<Grid @ref="Grid" WidthStyle="100%" HeightStyle="300px" Events="new GridEvents()">
     <GridColumn Header="Make" Field="make" />
     <GridColumn Header="Model" Field="model" />
     <GridColumn Header="Price" Field="price" />
@@ -21,6 +22,7 @@
 </Grid>
 
 @code {
+    protected Grid Grid;
     private int renderCount = 0;
 
     private int RenderCount()
@@ -33,5 +35,14 @@
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    async Task UpdateRowData()
+    {
+        await Grid.Api.SetRowData(new[]
+        {
+            new { make = $"Toyota#{RenderCount()}", model = "Celica", price = 54000 },
+            new { make = $"Ford#{RenderCount()}", model = "Mondeo", price = 42000 }
+        });
     }
 }

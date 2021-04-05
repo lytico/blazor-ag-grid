@@ -192,7 +192,8 @@ provide access to the corresponding ag-Grid APIs.
 Currently each of these interfaces only contain a very small
 number of sample API methods to invoke.  Right now these include
 samples for column resizing and purging/refreshing the cache used
-for the `Infinite` row model type.
+for the `Infinite` row model type. And also, SetRowData for the 
+Client-Side Row Model.
 
 ## Blazor Hosting Modes
 
