@@ -45,6 +45,7 @@ Here is a list of features that are currently supported:
   * customize a cell editor using registered the CellEditor
   * customize a row filtering using registered the Filtered
   * setting styles and classes for columns and rows
+  * customize a cell tooltips
 * Grid and Column APIs
 * local JS script configuration
 * Works with both Blazor WASM and Blazor Server hosting models

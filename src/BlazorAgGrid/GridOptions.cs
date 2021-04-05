@@ -103,6 +103,15 @@ namespace AgGrid.Blazor
         /// Enables Tree Data:
         ///   https://www.ag-grid.com/javascript-grid-tree-data/
         public bool? TreeData { get; set; }
+
+        // Tooltip https://www.ag-grid.com/javascript-grid/component-tooltip/
+        /// <summary>
+        /// Tooltip Show Delay
+        /// By default, when you hover on an item, it will take 2 seconds for the tooltip to be displayed.If you need to change this delay, the tooltipShowDelay config should be used, which is set in milliseconds.
+        /// </summary>
+        public int? TooltipShowDelay { get; set; }
+
+        public bool? TooltipMouseTrack { get; set; }
     }
 
     [JsonConverter(typeof(EnumConverter))]

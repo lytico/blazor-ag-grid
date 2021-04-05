@@ -46,6 +46,11 @@ namespace Example3.Pages
                 RowModelType = RowModelType.Infinite,
                 RowSelection = RowSelection.Multiple,
                 SuppressCellSelection = true,
+                EnableBrowserTooltips = true,
+                //DefaultColDef = new ColumnDefinition
+                //{
+                //    TooltipComponent = "tooltipComponent"
+                //},
                 ColumnDefinitions = new[]
                 {
                     new ColumnDefinition
@@ -55,7 +60,7 @@ namespace Example3.Pages
                         IsResizable = true,
                         IsSortable = true,
                         CellRenderer = "funcColorCellRenderer",
-                        CellRendererParams = new { color = "red" }
+                        CellRendererParams = new { color = "red" },
                     },
                     new ColumnDefinition
                     {
@@ -71,7 +76,8 @@ namespace Example3.Pages
                         HeaderName = "Title",
                         Field = "title",
                         IsResizable = true,
-                        IsSortable = true
+                        IsSortable = true,
+                        TooltipField = "title"
                     },
                 }
             };
@@ -119,13 +125,14 @@ namespace Example3.Pages
                 RowModelType = RowModelType.Infinite,
                 RowSelection = RowSelection.Multiple,
                 SuppressCellSelection = true,
+                EnableBrowserTooltips = true
             };
             photoEv = new GridEvents
             {
                 SelectionChanged = (Action<RowNode[]>)(nodes =>
                 {
                     Console.WriteLine("Photo Selected: " + (nodes?.Length == 0
-        ? "none" : string.Join(",", nodes.Select(n => n.Id))));
+                        ? "none" : string.Join(",", nodes.Select(n => n.Id))));
 
                     if ((nodes?.Length ?? 0) == 0)
                     {

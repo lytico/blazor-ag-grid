@@ -25,7 +25,12 @@
             Tooltip for the column header
             </summary>
         </member>
-        <member name="P:AgGrid.Blazor.ColumnDefinition.HeaderComponentFramework">
+        <member name="P:AgGrid.Blazor.ColumnDefinition.TooltipField">
+            <summary>
+            The field of the tooltip to apply to the cell.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.ColumnDefinition.HeaderComponent">
             <summary>
             Custom header component to use for this column. https://www.ag-grid.com/documentation/javascript/component-header/#header-component
             </summary>
@@ -236,7 +241,7 @@
               https://www.ag-grid.com/javascript-grid-api/
             </summary>
         </member>
-        <member name="M:AgGrid.Blazor.GridApi.SetRowData(System.Object)">
+        <member name="M:AgGrid.Blazor.GridApi.SetRowData(System.Collections.Generic.IEnumerable{System.Object})">
             <summary>
             Set rows
             </summary>
@@ -421,6 +426,12 @@
         <member name="P:AgGrid.Blazor.GridOptions.TreeData">
             Enables Tree Data:
               https://www.ag-grid.com/javascript-grid-tree-data/
+        </member>
+        <member name="P:AgGrid.Blazor.GridOptions.TooltipShowDelay">
+            <summary>
+            Tooltip Show Delay
+            By default, when you hover on an item, it will take 2 seconds for the tooltip to be displayed.If you need to change this delay, the tooltipShowDelay config should be used, which is set in milliseconds.
+            </summary>
         </member>
         <member name="P:AgGrid.Blazor.GridOptions.SuppressPreventDefaultOnMouseWheel">
             <summary>

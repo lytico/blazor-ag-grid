@@ -2,7 +2,8 @@
     gridOptions.getRowNodeId = node => "" + node.id;
     gridOptions.components = {
         ClassColorCellRenderer: ColorCellRenderer,
-        funcColorCellRenderer: colorCellRenderer
+        funcColorCellRenderer: colorCellRenderer,
+        tooltipComponent: TooltipComponent
     };
 };
 
@@ -31,6 +32,23 @@ class ColorCellRenderer implements ICellRendererComp {
     destroy?(): void {
         
     }
+}
+
+class TooltipComponent implements ITooltipComp {
+    public eGui = document.createElement('div');
+
+    init(params: ITooltipParams): void {
+        this.eGui.classList.add('custom-tooltip'); // ToDo: the correct class is required for the tooltip to be output in the correct place.
+
+        var valueToDisplay = params.value.value ? params.value.value : '- Missing -';
+
+        this.eGui.innerHTML =
+            "<p>Athlete's name:</p>" +
+            '<p><span class"name">' +
+            valueToDisplay + '</span></p>';
+    }
+
+    getGui(): HTMLElement { return this.eGui; }
 }
 
 interface ICellRendererParams {
@@ -73,4 +91,33 @@ interface ICellRendererComp {
     // If you return false, the grid will remove the component from the DOM and create
     // a new component in its place with the new values.
     refresh(params: ICellRendererParams): boolean;
+}
+
+interface ITooltipComp {
+    // The init(params) method is called on the tooltip component once. See below for details on the parameters.
+    init(params: ITooltipParams): void;
+
+    // Returns the DOM element for this tooltip
+    getGui(): HTMLElement;
+}
+
+interface ITooltipParams {
+    location: string; // what part of the application is showing the tooltip, e.g. 'cell', 'header', 'menuItem' etc
+    api: any; // the grid API
+    columnApi: any; // the column API
+    context: any; // the grid context
+
+    value?: any; // the value to be rendered by the tooltip
+
+    /* Column Params (N/A within some components like the Menu Item) */
+
+    colDef?: any; // the grid colDef
+    column?: any; // the column bound to this tooltip
+
+    /* Row and Cell Params (N/A with headerTooltips) */
+
+    valueFormatted?: any; // the formatted value to be rendered by the tooltip
+    rowIndex?: number; // the index of the row containing the cell rendering the tooltip
+    node?: any; // the row node
+    data?: any; // the row node data
 }

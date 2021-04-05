@@ -22,9 +22,13 @@ namespace AgGrid.Blazor
         /// </summary>
         public string HeaderTooltip { get; set; }
         /// <summary>
+        /// The field of the tooltip to apply to the cell.
+        /// </summary>
+        public string TooltipField { get; set; }
+        /// <summary>
         /// Custom header component to use for this column. https://www.ag-grid.com/documentation/javascript/component-header/#header-component
         /// </summary>
-        public string HeaderComponentFramework { get; set; }
+        public string HeaderComponent { get; set; }
         /// <summary>
         /// Params to be passed to header component.
         /// </summary>
@@ -44,6 +48,8 @@ namespace AgGrid.Blazor
         /// Default: false
         /// </summary>
         public bool SuppressFiltersToolPanel { get; set; }
+        public string TooltipComponent { get; set; }
+        public object TooltipComponentParams { get; set; }
 
         [JsonPropertyName("resizable")]
         public bool IsResizable { get; set; }
