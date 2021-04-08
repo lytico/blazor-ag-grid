@@ -110,6 +110,25 @@ window.BlazorAgGrid = {
                 var id = gridEvents.handlers.RowValueChanged.jsRef.invokeMethodAsync("Invoke", ev);
             }
         }
+        if (gridEvents.handlers.CellClicked) {
+            console.log("Wrapping CellClicked handler");
+            gridOptions.onCellClicked = function (event) {
+                var ev = {
+                    data: event.data,
+                    rowNodeId: event.node.id,
+                    rowIndex: event.rowIndex,
+                    rowPinned: event.rowPinned,
+                    context: event.context,
+                    event: event.event,
+                    //column: event.column,
+                    //colDef: event.colDef,
+                    columnId: event.column.colId,
+                    field: event.colDef.field,
+                    value: event.value
+                };
+                var id = gridEvents.handlers.CellClicked.jsRef.invokeMethodAsync("Invoke", ev);
+            }
+        }
         if (gridEvents.handlers.FirstDataRendered) {
             console.log("Wrapping FirstDataRendered handler");
             gridOptions.onFirstDataRendered = function () {

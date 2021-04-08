@@ -104,10 +104,14 @@ namespace Example3.Pages
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine("Failed to update DS: " + ex.ToString());
+                            Console.WriteLine("Failed to update DS: " + ex);
                         }
                     });
-                })
+                }),
+                CellClicked = (CellClickedEvent evnt) =>
+                {
+                    Console.WriteLine($"Cell {evnt.Field}:{evnt.RowNodeId} Clicked. Value {evnt.Value}");
+                }
             };
 
             //var module = await Module;

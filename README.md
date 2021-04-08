@@ -162,7 +162,7 @@ a custom Datasource.
 The `GridEvents` class defines all supported [Events](https://www.ag-grid.com/javascript-grid-events/)
 of ag-Grid.
 
-Currently implemented events are [SelectionChanged, CellValueChanged, RowValueChanged, GridReady, and others](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/BlazorAgGrid/GridEvents.cs).
+Currently implemented events are [SelectionChanged, RowValueChanged, CellValueChanged, CellClicked, GridReady, and others](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/BlazorAgGrid/GridEvents.cs).
 
 ### Grid Configuration Script
 

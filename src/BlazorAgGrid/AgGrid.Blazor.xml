@@ -298,6 +298,11 @@
             A cell's value within a row has changed. This event corresponds to Full Row Editing only.
             </summary>
         </member>
+        <member name="P:AgGrid.Blazor.GridEvents.CellClicked">
+            <summary>
+            Cell is clicked.
+            </summary>
+        </member>
         <member name="P:AgGrid.Blazor.GridEvents.FirstDataRendered">
             <summary>
             Fired the first time data is rendered into the grid.
@@ -314,9 +319,19 @@
             Value has changed after editing.
             </summary>
         </member>
+        <member name="T:AgGrid.Blazor.CellClickedEvent">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:AgGrid.Blazor.RowValueChangedEvent">
             <summary>
             A cell's value within a row has changed. This event corresponds to Full Row Editing only.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.CellEvent.Value">
+            <summary>
+            the value for the cell in question
             </summary>
         </member>
         <member name="T:AgGrid.Blazor.GridOptions">
