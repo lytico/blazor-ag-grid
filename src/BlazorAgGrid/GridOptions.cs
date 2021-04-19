@@ -98,7 +98,7 @@ namespace AgGrid.Blazor
 
         // Localisation https://www.ag-grid.com/documentation/javascript/grid-properties/#reference-localisation
         
-        public string LocaleText { get; set; }
+        public object LocaleText { get; set; }
 
         /// Enables Tree Data:
         ///   https://www.ag-grid.com/javascript-grid-tree-data/
