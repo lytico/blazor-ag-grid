@@ -24,7 +24,9 @@ namespace AgGrid.Blazor
         /// <summary>
         /// The field of the tooltip to apply to the cell.
         /// </summary>
-        public string TooltipField { get; set; }
+        public string TooltipField { get => string.IsNullOrWhiteSpace(_tooltipField) ? Field : _tooltipField ; set => _tooltipField = value ; }
+
+        private string _tooltipField;
         /// <summary>
         /// Custom header component to use for this column. https://www.ag-grid.com/documentation/javascript/component-header/#header-component
         /// </summary>

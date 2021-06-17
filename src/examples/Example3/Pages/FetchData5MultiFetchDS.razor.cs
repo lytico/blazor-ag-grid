@@ -77,7 +77,7 @@ namespace Example3.Pages
                         Field = "title",
                         IsResizable = true,
                         IsSortable = true,
-                        TooltipField = "title"
+                        //TooltipField = "title"
                     },
                 }
             };
