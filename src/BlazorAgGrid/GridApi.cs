@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.JSInterop;
 
@@ -72,6 +73,43 @@ namespace AgGrid.Blazor
             return _js.InvokeVoidAsync("BlazorAgGrid.gridOptions_setDatasource", _id, datasource).AsTask();
         }
 
+        /// <summary>
+        /// Starts editing the provided cell. If another cell is editing, the editing will be stopped in that other cell.
+        /// </summary>
+        /// <param name="params">Editing parameters.</param>
+        public Task StartEditingCell(StartEditingCellParams @params)
+        {
+            if (@params == null)
+            {
+                throw new ArgumentNullException(nameof(@params));
+            }
+            return CallApi("startEditingCell", @params);
+        }
+
+        public Task StopEditing(bool cancel = false)
+        {
+            return CallApi("stopEditing", cancel);
+        }
+
+        /// <summary>
+        /// Sets the focus to the specified cell.
+        /// </summary>
+        /// <param name="rowIndex">row index</param>
+        /// <param name="colKey">col key</param>
+        /// <param name="floating">'top' | 'bottom'</param>
+        public Task SetFocusedCell(long rowIndex, string colKey, string? floating = null)
+        {
+            if (floating == null)
+            {
+                return CallApi("startEditingCell", rowIndex, colKey);
+            }
+            if (floating == "top" || floating == "bottom")
+            {
+                return CallApi("startEditingCell", rowIndex, colKey, floating);
+            }
+            throw new ArgumentException($"illegal value: \"{floating}\"", nameof(floating));
+        }
+
         private Task CallApi(string name, params object[] args)
         {
             return _js.InvokeVoidAsync(CallGridApi, _id, name, args).AsTask();
@@ -92,5 +130,32 @@ namespace AgGrid.Blazor
             /// the row nodes to redraw
             public RowNode[] RowNodes { get; set; }
         }
-    }
+
+
+        /// <summary>
+        /// Editing parameters.
+        /// </summary>
+        public class StartEditingCellParams {
+            /// <summary>
+            /// The row index of the row to start editing.
+            /// </summary>
+            public long RowIndex { get; set; }
+            /// <summary>
+            /// The column key of the column to start editing.
+            /// </summary>
+            public string ColKey { get; set; }
+            /// <summary>
+            ///  Set to 'top' or 'bottom' to started editing a pinned row.
+            /// </summary>
+            public string? RowPinned { get; set; }
+            /// <summary>
+            /// The keyPress that are passed to the cell editor.
+            /// </summary>
+            public long? KeyPress { get; set; }
+            /// <summary>
+            /// The charPress that are passed to the cell editor.
+            /// </summary>
+            public string? CharPress { get; set; }
+        }
+}
 }
