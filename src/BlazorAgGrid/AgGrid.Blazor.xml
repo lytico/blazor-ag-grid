@@ -253,6 +253,20 @@
             </summary>
             <param name="datasource">New datasource</param>
         </member>
+        <member name="M:AgGrid.Blazor.GridApi.StartEditingCell(AgGrid.Blazor.GridApi.StartEditingCellParams)">
+            <summary>
+            Starts editing the provided cell. If another cell is editing, the editing will be stopped in that other cell.
+            </summary>
+            <param name="params">Editing parameters.</param>
+        </member>
+        <member name="M:AgGrid.Blazor.GridApi.SetFocusedCell(System.Int64,System.String,System.String)">
+            <summary>
+            Sets the focus to the specified cell.
+            </summary>
+            <param name="rowIndex">row index</param>
+            <param name="colKey">col key</param>
+            <param name="floating">'top' | 'bottom'</param>
+        </member>
         <member name="P:AgGrid.Blazor.GridApi.RefreshCellsParams.RowNodes">
             specify rows, or all rows by default
         </member>
@@ -264,6 +278,36 @@
         </member>
         <member name="P:AgGrid.Blazor.GridApi.RedrawRowsParams.RowNodes">
             the row nodes to redraw
+        </member>
+        <member name="T:AgGrid.Blazor.GridApi.StartEditingCellParams">
+            <summary>
+            Editing parameters.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridApi.StartEditingCellParams.RowIndex">
+            <summary>
+            The row index of the row to start editing.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridApi.StartEditingCellParams.ColKey">
+            <summary>
+            The column key of the column to start editing.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridApi.StartEditingCellParams.RowPinned">
+            <summary>
+             Set to 'top' or 'bottom' to started editing a pinned row.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridApi.StartEditingCellParams.KeyPress">
+            <summary>
+            The keyPress that are passed to the cell editor.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridApi.StartEditingCellParams.CharPress">
+            <summary>
+            The charPress that are passed to the cell editor.
+            </summary>
         </member>
         <member name="T:AgGrid.Blazor.GridCallbacks">
             <summary>
