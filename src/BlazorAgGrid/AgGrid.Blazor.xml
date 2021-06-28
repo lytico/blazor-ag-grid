@@ -57,12 +57,12 @@
             Default: false
             </summary>
         </member>
-        <member name="P:AgGrid.Blazor.ColumnDefinition.IsFiltered">
+        <member name="P:AgGrid.Blazor.ColumnDefinition.IsFiltrable">
             <summary>
             Set to true to use the default filter. Use the FilterFramework for custom filter. 
             </summary>
         </member>
-        <member name="P:AgGrid.Blazor.ColumnDefinition.Filtered">
+        <member name="P:AgGrid.Blazor.ColumnDefinition.Filter">
             <summary>
             Set standard filter by enum ColumnFilters or set string name custom filter component or set true to use the default filter.
             <remarks>https://www.ag-grid.com/documentation/javascript/component-filter/#example-custom-filter</remarks>

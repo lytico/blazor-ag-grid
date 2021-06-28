@@ -43,7 +43,7 @@ Here is a list of features that are currently supported:
   * row deselection
   * [customize](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/examples/Example3/Pages/FetchData5MultiFetchDS.razor.cs#L57) a cell view using [registered](https://github.com/glazkovalex/blazor-ag-grid/blob/master/src/examples/Example3/wwwroot/Pages/ag-grid-script-config.ts#L4) the CellRenderer
   * customize a cell editor using registered the CellEditor
-  * customize a row filtering using registered the Filtered
+  * customize a row filtering using registered the Filter
   * setting styles and classes for columns and rows
   * customize a cell tooltips
 * Grid and Column APIs

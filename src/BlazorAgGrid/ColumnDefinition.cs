@@ -63,12 +63,12 @@ namespace AgGrid.Blazor
         /// Set to true to use the default filter. Use the FilterFramework for custom filter. 
         /// </summary>
         [JsonIgnore]
-        public bool? IsFiltered { get => Filtered != null; set { if (value == true) Filtered = true; } }
+        public bool? IsFiltrable { get => Filter != null; set { if (value == true) Filter = true; } }
         /// <summary>
         /// Set standard filter by enum ColumnFilters or set string name custom filter component or set true to use the default filter.
         /// <remarks>https://www.ag-grid.com/documentation/javascript/component-filter/#example-custom-filter</remarks>
         /// </summary>
-        public object Filtered { get; set; }
+        public object Filter { get; set; }
 
         /// <summary>
         /// Custom params to be passed to filter component.
