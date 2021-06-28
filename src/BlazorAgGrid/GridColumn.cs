@@ -23,7 +23,7 @@ namespace AgGrid.Blazor
                 HeaderName = Header,
                 IsResizable = IsResizable,
                 IsSortable = IsSortable,
-                IsFiltered = IsFiltered,
+                IsFiltrable = IsFiltered,
                 IsEditable = IsEditable,
             }); ;
         }

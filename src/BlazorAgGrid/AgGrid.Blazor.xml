@@ -327,6 +327,11 @@
                https://www.ag-grid.com/javascript-grid-events/
             </summary>
         </member>
+        <member name="P:AgGrid.Blazor.GridEvents.CellClicked">
+            <summary>
+            Cell is clicked.
+            </summary>
+        </member>
         <member name="P:AgGrid.Blazor.GridEvents.SelectionChanged">
             <summary>
             Row selection is changed. Use the grid API to get the new row selected.
@@ -342,9 +347,26 @@
             A cell's value within a row has changed. This event corresponds to Full Row Editing only.
             </summary>
         </member>
-        <member name="P:AgGrid.Blazor.GridEvents.CellClicked">
+        <member name="P:AgGrid.Blazor.GridEvents.CellEditingStarted">
             <summary>
-            Cell is clicked.
+            Editing a cell has started.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridEvents.CellEditingStopped">
+            <summary>
+            Editing a cell has stopped.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridEvents.RowEditingStarted">
+            <summary>
+            Editing a row has started (when row editing is enabled). When row editing, this event will be fired once
+            and cellEditingStarted will be fired for each individual cell. This event corresponds to Full Row Editing only.
+            </summary>
+        </member>
+        <member name="P:AgGrid.Blazor.GridEvents.RowEditingStopped">
+            <summary>
+            Editing a row has stopped (when row editing is enabled). When row editing, this event will be fired once
+            and cellEditingStopped will be fired for each individual cell. This event corresponds to Full Row Editing only.
             </summary>
         </member>
         <member name="P:AgGrid.Blazor.GridEvents.FirstDataRendered">
@@ -358,7 +380,12 @@
             Use this event if, for example, you need to use the grid's API to fix the columns to size.
             </summary>
         </member>
-        <member name="T:AgGrid.Blazor.CellValueChangedDetail">
+        <member name="T:AgGrid.Blazor.CellValueChangedEvent">
+            <summary>
+            Value has changed after editing.
+            </summary>
+        </member>
+        <member name="T:AgGrid.Blazor.CellEditingStoppedEvent">
             <summary>
             Value has changed after editing.
             </summary>

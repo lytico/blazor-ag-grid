@@ -10,22 +10,39 @@ namespace AgGrid.Blazor
     public partial class GridEvents
     {
         /// <summary>
+        /// Cell is clicked.
+        /// </summary>
+        public Action<CellClickedEvent> CellClicked { set => Set(value); }
+        /// <summary>
         /// Row selection is changed. Use the grid API to get the new row selected.
         /// </summary>
         public Action<RowNode[]> SelectionChanged { set => Set(value); }
         /// <summary>
         /// Value has changed after editing.
         /// </summary>
-        public Action<CellValueChangedDetail> CellValueChanged { set => Set(value); }
+        public Action<CellValueChangedEvent> CellValueChanged { set => Set(value); }
         /// <summary>
         /// A cell's value within a row has changed. This event corresponds to Full Row Editing only.
         /// </summary>
         public Action<RowValueChangedEvent> RowValueChanged { set => Set(value); }
-
         /// <summary>
-        /// Cell is clicked.
+        /// Editing a cell has started.
         /// </summary>
-        public Action<CellClickedEvent> CellClicked { set => Set(value); }
+        public Action<CellEvent> CellEditingStarted { set => Set(value); }
+        /// <summary>
+        /// Editing a cell has stopped.
+        /// </summary>
+        public Action<CellEditingStoppedEvent> CellEditingStopped { set => Set(value); }
+        /// <summary>
+        /// Editing a row has started (when row editing is enabled). When row editing, this event will be fired once
+        /// and cellEditingStarted will be fired for each individual cell. This event corresponds to Full Row Editing only.
+        /// </summary>
+        public Action<RowEvent> RowEditingStarted { set => Set(value); }
+        /// <summary>
+        /// Editing a row has stopped (when row editing is enabled). When row editing, this event will be fired once
+        /// and cellEditingStopped will be fired for each individual cell. This event corresponds to Full Row Editing only.
+        /// </summary>
+        public Action<RowEvent> RowEditingStopped { set => Set(value); }
 
         /// <summary>
         /// Fired the first time data is rendered into the grid.
@@ -42,20 +59,21 @@ namespace AgGrid.Blazor
     /// <summary>
     /// Value has changed after editing.
     /// </summary>
-    public class CellValueChangedDetail
+    public class CellValueChangedEvent : CellEvent
     {
-        public JsonElement Data { get; set; }
-        public string RowNodeId { get; set; }
+        public dynamic OldValue { get; set; }
 
-        public string Field { get; set; }
+        public dynamic NewValue { get; set; }
+    }
 
-        public string ColumnId { get; set; }
+    /// <summary>
+    /// Value has changed after editing.
+    /// </summary>
+    public class CellEditingStoppedEvent : CellEvent
+    {
+        public dynamic OldValue { get; set; }
 
-        public int RowIndex { get; set; }
-
-        public JsonElement OldValue { get; set; }
-
-        public JsonElement NewValue { get; set; }
+        public dynamic NewValue { get; set; }
     }
 
     /// <summary>

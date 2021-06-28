@@ -75,6 +75,25 @@ window.BlazorAgGrid = {
     }
     , createGrid_wrapEvents: function (gridOptions, gridEvents) {
         console.log("Got GridEvents: " + JSON.stringify(gridEvents));
+        if (gridEvents.handlers.CellClicked) {
+            console.log("Wrapping CellClicked handler");
+            gridOptions.onCellClicked = function (event) {
+                var ev = {
+                    data: event.data,
+                    rowNodeId: event.node.id,
+                    rowIndex: event.rowIndex,
+                    rowPinned: event.rowPinned,
+                    context: event.context,
+                    event: event.event,
+                    //column: event.column,
+                    //colDef: event.colDef,
+                    columnId: event.column.colId,
+                    field: event.colDef.field,
+                    value: event.value
+                };
+                var id = gridEvents.handlers.CellClicked.jsRef.invokeMethodAsync("Invoke", ev);
+            }
+        }
         if (gridEvents.handlers.SelectionChanged) {
             console.log("Wrapping SelectionChanged handler");
             gridOptions.onSelectionChanged = function () {
@@ -90,8 +109,12 @@ window.BlazorAgGrid = {
                     field: data.colDef.field,
                     columnId: data.column.colId,
                     rowIndex: data.rowIndex,
+                    rowPinned: data.rowPinned,
+                    context: data.context,
+                    event: data.event,
+                    value: data.value,
                     oldValue: data.oldValue,
-                    newValue: data.value
+                    newValue: data.newValue
                 };
                 var id = gridEvents.handlers.CellValueChanged.jsRef.invokeMethodAsync("Invoke", ev);
             }
@@ -110,9 +133,9 @@ window.BlazorAgGrid = {
                 var id = gridEvents.handlers.RowValueChanged.jsRef.invokeMethodAsync("Invoke", ev);
             }
         }
-        if (gridEvents.handlers.CellClicked) {
-            console.log("Wrapping CellClicked handler");
-            gridOptions.onCellClicked = function (event) {
+        if (gridEvents.handlers.CellEditingStarted) {
+            console.log("Wrapping CellEditingStarted handler");
+            gridOptions.onCellEditingStarted = function (event) {
                 var ev = {
                     data: event.data,
                     rowNodeId: event.node.id,
@@ -120,13 +143,58 @@ window.BlazorAgGrid = {
                     rowPinned: event.rowPinned,
                     context: event.context,
                     event: event.event,
-                    //column: event.column,
-                    //colDef: event.colDef,
-                    columnId: event.column.colId,
                     field: event.colDef.field,
+                    columnId: event.column.colId,
                     value: event.value
                 };
-                var id = gridEvents.handlers.CellClicked.jsRef.invokeMethodAsync("Invoke", ev);
+                var id = gridEvents.handlers.CellEditingStarted.jsRef.invokeMethodAsync("Invoke", ev);
+            }
+        }
+        if (gridEvents.handlers.CellEditingStopped) {
+            console.log("Wrapping CellEditingStopped handler");
+            gridOptions.onCellEditingStopped = function (event) {
+                var ev = {
+                    data: event.data,
+                    rowNodeId: event.node.id,
+                    rowIndex: event.rowIndex,
+                    rowPinned: event.rowPinned,
+                    context: event.context,
+                    event: event.event,
+                    field: event.colDef.field,
+                    columnId: event.column.colId,
+                    value: event.value,
+                    oldValue: event.oldValue,
+                    newValue: event.newValuet
+                };
+                var id = gridEvents.handlers.CellEditingStopped.jsRef.invokeMethodAsync("Invoke", ev);
+            }
+        }
+        if (gridEvents.handlers.RowEditingStarted) {
+            console.log("Wrapping RowEditingStarted handler");
+            gridOptions.onRowEditingStarted = function (event) {
+                var ev = {
+                    data: event.data,
+                    rowNodeId: event.node.id,
+                    rowIndex: event.rowIndex,
+                    rowPinned: event.rowPinned,
+                    context: event.context,
+                    event: event.event
+                };
+                var id = gridEvents.handlers.RowEditingStarted.jsRef.invokeMethodAsync("Invoke", ev);
+            }
+        }
+        if (gridEvents.handlers.RowEditingStopped) {
+            console.log("Wrapping RowEditingStopped handler");
+            gridOptions.onRowEditingStopped = function (event) {
+                var ev = {
+                    data: event.data,
+                    rowNodeId: event.node.id,
+                    rowIndex: event.rowIndex,
+                    rowPinned: event.rowPinned,
+                    context: event.context,
+                    event: event.event
+                };
+                var id = gridEvents.handlers.RowEditingStopped.jsRef.invokeMethodAsync("Invoke", ev);
             }
         }
         if (gridEvents.handlers.FirstDataRendered) {
