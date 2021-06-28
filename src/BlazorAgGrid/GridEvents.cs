@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json;
 
 namespace AgGrid.Blazor
 {
@@ -43,7 +44,7 @@ namespace AgGrid.Blazor
     /// </summary>
     public class CellValueChangedDetail
     {
-        public dynamic Data { get; set; }
+        public JsonElement Data { get; set; }
         public string RowNodeId { get; set; }
 
         public string Field { get; set; }
@@ -52,9 +53,9 @@ namespace AgGrid.Blazor
 
         public int RowIndex { get; set; }
 
-        public object OldValue { get; set; }
+        public JsonElement OldValue { get; set; }
 
-        public object NewValue { get; set; }
+        public JsonElement NewValue { get; set; }
     }
 
     /// <summary>
@@ -69,7 +70,7 @@ namespace AgGrid.Blazor
 
     public class RowEvent
     {
-        public dynamic Data { get; set; }
+        public JsonElement Data { get; set; }
         public string RowNodeId { get; set; }
         public int RowIndex { get; set; }
         public string RowPinned { get; set; }
