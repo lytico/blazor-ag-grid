@@ -353,3 +353,6 @@ MigrationBackup/
 _IGNORE
 _TMP
 *.js.map
+
+## rider
+.idea/
